@@ -1,3 +1,4 @@
+import Looders from "@/components/Looders";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
@@ -11,10 +12,12 @@ import {
   ReactNode,
   ReactPortal,
   Key,
+  useState,
 } from "react";
 import { Pressable, TouchableOpacity } from "react-native";
 
 export default function Chapters() {
+
   const backgroundColor = useThemeColor(
     { light: tintColorLight, dark: tintColorDark },
     "text"
@@ -44,9 +47,11 @@ export default function Chapters() {
             borderColor: backgroundColor,
           }}
           onPress={() => {
+
             router.navigate({
               pathname: "/",
             });
+
           }}
         >
           
@@ -80,10 +85,12 @@ export default function Chapters() {
                 borderRadius: 6,
               }}
               onPress={() => {
+
                 router.navigate({
                   pathname: "/verses",
                   params: { chapter: item, from: version , book:book, chapters:chapters, ilist : ilist },
                 });
+
               }}
             >
              
@@ -92,6 +99,7 @@ export default function Chapters() {
             </TouchableOpacity>
           );
         })}
+
       </ParallaxScrollView>
     </>
   );

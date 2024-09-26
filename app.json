@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mwbible",
-    "slug": "mwbible",
+    "name": "mw bibles",
+    "slug": "mwbibles",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

@@ -9,6 +9,7 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, TouchableOpacity, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
+import Looders from "@/components/Looders";
 
 interface Verse {
   vnumber: string;
@@ -41,7 +42,7 @@ function getVersesByBookAndChapter(
 
   bibleData.BIBLEBOOK.forEach((book) => {
     if (book.bname === bookName) {
-      if (ilist === "1" ) {
+      if (ilist === "1") {
         verses = book.CHAPTERS.VERS;
       } else {
         book.CHAPTERS.forEach((chapter) => {
@@ -70,10 +71,11 @@ export default function Verses() {
   const [chap, setchap] = useState(chapter);
 
   function chapterDecrement() {
-    if (chap === '1') {
+    if (chap === "1") {
       router.navigate({
         pathname: "/",
       });
+
     } else {
       const c = Number(chap) - 1;
       setchap("" + c + "");
@@ -194,25 +196,3 @@ export default function Verses() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  fab: {
-    position: "absolute",
-    width: 60,
-    height: 60,
-
-    justifyContent: "center",
-    alignItems: "center",
-    right: 20,
-    bottom: 30, // Adjust to position the button where you want it
-    shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.8,
-    borderWidth: 1,
-    elevation: 1, // This is for Android shadow
-  },
-});
